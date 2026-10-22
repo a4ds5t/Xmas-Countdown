@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Almost — You &amp; places</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="mockup.css" />
+  </head>
+  <body>
+    <div class="bokeh" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <strong>Almost</strong>
+          <span>Your dates</span>
+        </div>
+        <nav class="nav" aria-label="Mockup screens">
+          <a href="index.html">Hub</a>
+          <a href="dashboard.html">Home</a>
+          <a href="add-event.html">Add date</a>
+          <a href="add-person.html">People</a>
+          <a href="profile.html" aria-current="page">You</a>
+        </nav>
+      </header>
+
+      <p class="eyebrow">Profile</p>
+      <h1>You, your span, your map</h1>
+      <p class="lede">Birthday and birth year drive how long you’ve lived. Region and places you like decide which public holidays show up. None of this is only Christmas.</p>
+
+      <section class="grid-2" style="margin-top: 28px">
+        <div class="card">
+          <h2>About you</h2>
+          <div class="field">
+            <label>Name</label>
+            <div class="fake-input">Allard</div>
+          </div>
+          <div class="field">
+            <label>Birthday</label>
+            <div class="fake-input">12 March 1978</div>
+          </div>
+          <div class="field">
+            <label>Home region</label>
+            <div class="fake-select">Netherlands · Gelderland</div>
+          </div>
+          <div class="toggle">
+            <p>Show my life bar on Home<small>Days lived and an estimate of remaining years from national expectancy tables.</small></p>
+            <span class="switch" aria-hidden="true"></span>
+          </div>
+          <div class="toggle">
+            <p>Count my own birthday<small>Treats your birthday as an event in the feed, like anyone else’s.</small></p>
+            <span class="switch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="card life">
+          <p class="eyebrow">Estimate</p>
+          <h2>Time as a bar</h2>
+          <p>48 of ~82 years. You can hide this; it is optional and clearly labelled as a sketch.</p>
+          <div class="meter" aria-hidden="true"><i></i></div>
+          <div class="life-stats">
+            <span><b>17,627</b> days lived</span>
+            <span><b>~33</b> years sketched remaining</span>
+          </div>
+          <p class="note">Uses a simple Netherlands expectancy figure. Not medical advice. You pick the table, or turn it off.</p>
+        </div>
+      </section>
+
+      <section class="grid-2" style="margin-top: 20px">
+        <div class="card">
+          <h2>Places &amp; cultures you follow</h2>
+          <p class="lede" style="margin-top: 0; margin-bottom: 16px">Holidays from home plus places you like. Each place can carry public holidays and a cultural calendar.</p>
+          <div class="places">
+            <span class="place on">Netherlands</span>
+            <span class="place on">Spain</span>
+            <span class="place on">Taiwan</span>
+            <span class="place on">India</span>
+            <span class="place">+ Add a place</span>
+          </div>
+          <div class="toggle">
+            <p>Gregorian calendar<small>Default for birthdays, namedays, most Western holidays.</small></p>
+            <span class="switch" aria-hidden="true"></span>
+          </div>
+          <div class="toggle">
+            <p>Lunar / lunisolar dates<small>So Lunar New Year and Mid-Autumn can sit next to Christmas.</small></p>
+            <span class="switch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Collect from a calendar</h2>
+          <p class="lede" style="margin-top: 0; margin-bottom: 16px">Optional. Pull birthdays and events you already keep, then tag them as person, holiday, or milestone.</p>
+          <div class="field">
+            <label>Connected</label>
+            <div class="fake-input">Google Calendar · personal</div>
+          </div>
+          <div class="toggle">
+            <p>Import birthdays<small>Turns calendar birthday entries into people you follow.</small></p>
+            <span class="switch" aria-hidden="true"></span>
+          </div>
+          <div class="toggle">
+            <p>Import named holidays<small>Only dates you already marked; Almost does not scrape private mail.</small></p>
+            <span class="switch off" aria-hidden="true"></span>
+          </div>
+          <div class="actions">
+            <span class="btn">Sync now</span>
+            <span class="btn secondary">Choose calendars</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

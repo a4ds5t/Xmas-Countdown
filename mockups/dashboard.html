@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Almost — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="mockup.css" />
+  </head>
+  <body>
+    <div class="bokeh" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <strong>Almost</strong>
+          <span>Your dates</span>
+        </div>
+        <nav class="nav" aria-label="Mockup screens">
+          <a href="index.html">Hub</a>
+          <a href="dashboard.html" aria-current="page">Home</a>
+          <a href="add-event.html">Add date</a>
+          <a href="add-person.html">People</a>
+          <a href="profile.html">You</a>
+        </nav>
+      </header>
+
+      <p class="eyebrow">Thursday 22 October 2026 · Apeldoorn</p>
+      <h1>Coming up</h1>
+      <p class="lede">Not only Christmas. The next thing that matters is a person, a feast, or a milestone — whoever it belongs to.</p>
+
+      <section class="hero">
+        <article class="card feature">
+          <div class="ribbon" aria-hidden="true"></div>
+          <div class="feature-inner">
+            <p class="eyebrow">Next</p>
+            <h2>Mama’s 76th birthday</h2>
+            <p class="who">Joke · family · 3 November</p>
+            <div class="tiles" role="group" aria-label="Countdown">
+              <div class="tile"><b>12</b><span>days</span></div>
+              <div class="tile"><b>04</b><span>hours</span></div>
+              <div class="tile"><b>18</b><span>min</span></div>
+              <div class="tile"><b>41</b><span>sec</span></div>
+            </div>
+          </div>
+        </article>
+        <article class="card life">
+          <p class="eyebrow">Your life</p>
+          <h2>48 years in</h2>
+          <p>Born 12 March 1978. At a Dutch life expectancy of ~82, this is a sketch of time lived versus time still ahead — not a promise.</p>
+          <div class="meter" aria-hidden="true"><i></i></div>
+          <div class="life-stats">
+            <span><b>17,627</b> days lived</span>
+            <span><b>~12,400</b> days estimated remaining</span>
+          </div>
+          <p class="note">Shown because you asked Almost to track your own span, not only other people’s dates.</p>
+        </article>
+      </section>
+
+      <div class="toolbar">
+        <div class="chips" role="group" aria-label="Filter">
+          <span class="chip on">All dates</span>
+          <span class="chip">People</span>
+          <span class="chip">Holidays</span>
+          <span class="chip">Milestones</span>
+        </div>
+        <a class="ghost" href="add-event.html">+ New date</a>
+      </div>
+
+      <section class="list" aria-label="Upcoming events">
+        <article class="row">
+          <div class="when">12 d<small>3 Nov</small></div>
+          <div class="what"><strong>Mama’s birthday</strong><span>Joke turns 76 · repeating yearly</span></div>
+          <span class="kind person">Birthday</span>
+        </article>
+        <article class="row">
+          <div class="when">19 d<small>10 Nov</small></div>
+          <div class="what"><strong>Andrzej’s nameday</strong><span>Poland · name-day calendar you follow for him</span></div>
+          <span class="kind person">Nameday</span>
+        </article>
+        <article class="row">
+          <div class="when">26 d<small>17 Nov</small></div>
+          <div class="what"><strong>Lena &amp; Joost — 10 years</strong><span>Wedding anniversary · milestone you added</span></div>
+          <span class="kind milestone">Anniversary</span>
+        </article>
+        <article class="row">
+          <div class="when">47 d<small>8 Dec</small></div>
+          <div class="what"><strong>Mei’s winter break starts</strong><span>Personal milestone · Taipei school calendar</span></div>
+          <span class="kind milestone">Milestone</span>
+        </article>
+        <article class="row">
+          <div class="when">63 d<small>25 Dec</small></div>
+          <div class="what"><strong>Christmas</strong><span>Netherlands · also on Marco’s list</span></div>
+          <span class="kind holiday">Holiday</span>
+        </article>
+        <article class="row">
+          <div class="when">71 d<small>1 Jan</small></div>
+          <div class="what"><strong>Nieuwjaar</strong><span>Your region · plus Diwali and Lunar New Year further out</span></div>
+          <span class="kind holiday">Holiday</span>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

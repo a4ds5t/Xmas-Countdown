@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Almost — Add someone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="mockup.css" />
+  </head>
+  <body>
+    <div class="bokeh" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <strong>Almost</strong>
+          <span>Your dates</span>
+        </div>
+        <nav class="nav" aria-label="Mockup screens">
+          <a href="index.html">Hub</a>
+          <a href="dashboard.html">Home</a>
+          <a href="add-event.html">Add date</a>
+          <a href="add-person.html" aria-current="page">People</a>
+          <a href="profile.html">You</a>
+        </nav>
+      </header>
+
+      <p class="eyebrow">People</p>
+      <h1>Follow someone</h1>
+      <p class="lede">A person is a bundle of dates: birthday, nameday if they have one, the holidays of their culture, and any milestone you attach. You choose what to follow.</p>
+
+      <section class="grid-2" style="margin-top: 28px">
+        <div class="card">
+          <h2>New person</h2>
+          <div class="field">
+            <label>Name</label>
+            <div class="fake-input">Mei Chen</div>
+          </div>
+          <div class="field">
+            <label>How you know them</label>
+            <div class="fake-select">Friend · Taipei</div>
+          </div>
+          <div class="field">
+            <label>Birthday</label>
+            <div class="fake-input">4 February 1991</div>
+          </div>
+          <div class="field">
+            <label>Nameday</label>
+            <div class="fake-input muted">None · or pick a calendar (e.g. Polish, Greek)</div>
+          </div>
+          <div class="field">
+            <label>Culture &amp; holidays to follow for them</label>
+            <div class="chips">
+              <span class="chip on">Taiwan</span>
+              <span class="chip on">Lunar calendar</span>
+              <span class="chip">Netherlands</span>
+              <span class="chip">Christian feasts</span>
+            </div>
+          </div>
+          <p style="margin: 0 0 12px; color: var(--cream-dim); font-size: 14px;">Suggested dates for Mei: Lunar New Year, Lantern Festival, Mid-Autumn, her birthday, first day of school for her daughter.</p>
+          <div class="actions">
+            <span class="btn">Follow Mei</span>
+            <a class="btn secondary" href="add-event.html">Add a one-off date instead</a>
+          </div>
+        </div>
+
+        <div>
+          <article class="card" style="margin-bottom: 16px">
+            <h2>What following means</h2>
+            <p class="lede" style="margin-top: 0">Their dates land on your Home feed with a person tag. You can mute a single holiday without unfollowing the person.</p>
+          </article>
+          <div class="people">
+            <article class="person">
+              <div class="avatar">J</div>
+              <div><strong>Joke</strong><span>Family · birthday, Sinterklaas</span></div>
+              <span class="ghost">Following</span>
+            </article>
+            <article class="person">
+              <div class="avatar">A</div>
+              <div><strong>Andrzej</strong><span>Colleague · nameday, Christmas, Wielkanoc</span></div>
+              <span class="ghost">Following</span>
+            </article>
+            <article class="person">
+              <div class="avatar">L</div>
+              <div><strong>Lena &amp; Joost</strong><span>Friends · anniversary, both birthdays</span></div>
+              <span class="ghost">Following</span>
+            </article>
+            <article class="person">
+              <div class="avatar">M</div>
+              <div><strong>Marco</strong><span>KPN · Christmas countdown, birthday</span></div>
+              <span class="ghost">Following</span>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

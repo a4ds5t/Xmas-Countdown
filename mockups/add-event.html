@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Almost — Add a date</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="mockup.css" />
+  </head>
+  <body>
+    <div class="bokeh" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <strong>Almost</strong>
+          <span>Your dates</span>
+        </div>
+        <nav class="nav" aria-label="Mockup screens">
+          <a href="index.html">Hub</a>
+          <a href="dashboard.html">Home</a>
+          <a href="add-event.html" aria-current="page">Add date</a>
+          <a href="add-person.html">People</a>
+          <a href="profile.html">You</a>
+        </nav>
+      </header>
+
+      <p class="eyebrow">New date</p>
+      <h1>Any life event</h1>
+      <p class="lede">A date can be a public holiday, someone’s birthday or nameday, an anniversary, a first day of school, a retirement, a memorial. Pick a type so Home can filter.</p>
+
+      <section class="grid-2" style="margin-top: 28px">
+        <div class="card">
+          <h2>Create</h2>
+          <div class="field">
+            <label>What kind</label>
+            <div class="chips">
+              <span class="chip">Holiday</span>
+              <span class="chip">Birthday</span>
+              <span class="chip">Nameday</span>
+              <span class="chip on">Milestone</span>
+              <span class="chip">Anniversary</span>
+              <span class="chip">Memorial</span>
+              <span class="chip">Other</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Title</label>
+            <div class="fake-input">Mei’s daughter — first day of school</div>
+          </div>
+          <div class="field">
+            <label>Whose date</label>
+            <div class="fake-select">Mei Chen · friend</div>
+          </div>
+          <div class="field">
+            <label>When</label>
+            <div class="fake-input">1 September 2027 · lunisolar optional</div>
+          </div>
+          <div class="field">
+            <label>Repeat</label>
+            <div class="chips">
+              <span class="chip">Once</span>
+              <span class="chip on">Every year</span>
+              <span class="chip">Every lunar year</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Place or calendar</label>
+            <div class="fake-select">Taiwan · school year</div>
+          </div>
+          <div class="toggle">
+            <p>Show a live countdown<small>Same tiles as Christmas, for this date.</small></p>
+            <span class="switch" aria-hidden="true"></span>
+          </div>
+          <div class="actions">
+            <span class="btn">Save this date</span>
+            <a class="btn secondary" href="add-person.html">Attach to a new person</a>
+          </div>
+        </div>
+
+        <div>
+          <article class="card preview">
+            <p class="eyebrow">Preview on Home</p>
+            <h2>First day of school</h2>
+            <p class="meta">Mei’s daughter · milestone · Taiwan · yearly</p>
+            <div class="tiles">
+              <div class="tile"><b>314</b><span>days</span></div>
+              <div class="tile"><b>08</b><span>hours</span></div>
+              <div class="tile"><b>12</b><span>min</span></div>
+              <div class="tile"><b>03</b><span>sec</span></div>
+            </div>
+          </article>
+          <article class="card" style="margin-top: 16px">
+            <h2>Other examples this screen covers</h2>
+            <div class="list" style="margin-top: 12px">
+              <div class="row" style="grid-template-columns: 1fr auto">
+                <div class="what"><strong>Diwali</strong><span>Holiday · India · you follow the place</span></div>
+                <span class="kind holiday">Holiday</span>
+              </div>
+              <div class="row" style="grid-template-columns: 1fr auto">
+                <div class="what"><strong>Andrzej’s nameday</strong><span>Person · Polish calendar</span></div>
+                <span class="kind person">Nameday</span>
+              </div>
+              <div class="row" style="grid-template-columns: 1fr auto">
+                <div class="what"><strong>Retirement party</strong><span>Milestone · once · colleague</span></div>
+                <span class="kind milestone">Milestone</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
