@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Assets-only Worker for Almost Christmas. No Worker script, no routes,
+  // no custom domain. This config is for local `wrangler dev` and
+  // `wrangler deploy --dry-run` only — nothing here is deployed.
+  //
+  // Layout: GitHub Pages serves this repository root. Wrangler uploads that
+  // same root (`assets.directory`) so the site is not copied into `public/`.
+  // `.assetsignore` drops repo metadata from the asset upload.
+  //
+  // TODO(deploy): rewrite canonical, hreflang, og:url, and og:image in
+  // index.html at deploy time. They still point at the GitHub Pages host
+  // https://drallas.github.io/Xmas-Countdown/. Do not invent a production
+  // Workers URL. A thin Worker plus the ASSETS binding can do the rewrite
+  // once a real hostname exists.
+  "name": "xmas-countdown",
+  "compatibility_date": "2026-10-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./"
+  },
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "head_sampling_rate": 1 },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+  }
+}
