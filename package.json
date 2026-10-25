@@ -1,0 +1,16 @@
+{
+  "name": "xmas-countdown",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local Cloudflare Worker (static assets) for the Almost Christmas countdown. Not deployed.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "check": "wrangler deploy --dry-run"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
