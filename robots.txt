@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://almost-xmas.soholocal.nl/sitemap.xml
