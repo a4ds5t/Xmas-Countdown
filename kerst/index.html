@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kerst · Houd het stil</title>
+    <meta
+      name="description"
+      content="Aftellen naar 25 december 2026 — goud, evergreen en stille midwinterwarmte."
+    />
+    <meta name="theme-color" content="#0a1210" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <!-- Photo: Chad Madden / Unsplash — https://unsplash.com/photos/SUTfFCAHV_A -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kerst-baubles.css" />
+  </head>
+  <body class="kerst-B">
+    <section class="hero-bleed" aria-label="Kerstboom baubles hero">
+      <div
+        class="kerst-photo-layer"
+        role="img"
+        aria-label="Close-up van gouden kerstballen aan een kerstboom"
+      ></div>
+      <div class="kerst-photo-veil" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">Kerst · midwinter</p>
+        <h1>Houd het stil</h1>
+        <p class="lede">
+          Goud dat zich gedraagt als kaarslicht, evergreen in zachte bokeh. De foto houdt de sfeer —
+          geen mall-glitter, alleen warmte.
+        </p>
+        <div class="tiles" role="group" aria-label="Aftellen naar 25 december 2026">
+          <div class="tile"><b id="cd-d">60</b><span>dagen</span></div>
+          <div class="tile"><b id="cd-h">14</b><span>uur</span></div>
+          <div class="tile"><b id="cd-m">32</b><span>min</span></div>
+          <div class="tile"><b id="cd-s">08</b><span>sec</span></div>
+        </div>
+        <div class="actions">
+          <button
+            type="button"
+            class="btn primary"
+            id="open-info"
+            aria-haspopup="dialog"
+            aria-controls="info-panel"
+          >
+            Meer over deze dag
+          </button>
+          <span class="btn ghost">Herinner mij</span>
+        </div>
+      </div>
+      <p class="credit-footer">
+        Foto
+        <a href="https://unsplash.com/photos/SUTfFCAHV_A" rel="noopener noreferrer" target="_blank"
+          >Chad Madden</a
+        >
+        · Unsplash
+      </p>
+    </section>
+
+    <div class="info-backdrop" id="info-backdrop" hidden></div>
+    <div
+      class="info-panel"
+      id="info-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="info-title"
+      hidden
+    >
+      <button type="button" class="panel-close" id="close-info" aria-label="Sluiten">×</button>
+      <p class="eyebrow" style="opacity: 0.65">Kerst · 24–26 december</p>
+      <h2 id="info-title">Stille december</h2>
+      <p class="cultural" style="opacity: 0.75; margin-top: 6px">
+        Bos · warm goud · kaarslicht — geen mall-Santa.
+      </p>
+
+      <div class="panel-block">
+        <p class="section-label">Wat dit is</p>
+        <h3>Een midwinterpauze</h3>
+        <p class="cultural">
+          Kerst markeert de zachtste wending van het jaar — licht naar binnen wanneer de nachten het
+          langst zijn. Geen spektakel, maar verzamelen: een tafel die vroeg gedekt wordt, kaarsen vóór
+          de schemering, kamers die vastgehouden aanvoelen.
+        </p>
+      </div>
+
+      <div class="panel-block">
+        <p class="section-label">Sleutelmomenten</p>
+        <h3>Drie dagen die tellen</h3>
+        <div class="chips">
+          <span class="chip"><strong>24 dec</strong> Vooravond · kaarsen &amp; tafel</span>
+          <span class="chip"><strong>25 dec</strong> Eerste Kerstdag</span>
+          <span class="chip"><strong>26 dec</strong> Tweede Kerstdag</span>
+        </div>
+        <div class="actions">
+          <span class="btn primary">Herinner mij</span>
+          <span class="btn ghost">Bewaar deze dag</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var target = new Date("2026-12-25T00:00:00");
+        function pad(n) {
+          return n < 10 ? "0" + n : String(n);
+        }
+        function tick() {
+          var now = new Date();
+          var ms = Math.max(0, target - now);
+          var s = Math.floor(ms / 1000);
+          var d = Math.floor(s / 86400);
+          s %= 86400;
+          var h = Math.floor(s / 3600);
+          s %= 3600;
+          var m = Math.floor(s / 60);
+          s %= 60;
+          var elD = document.getElementById("cd-d");
+          var elH = document.getElementById("cd-h");
+          var elM = document.getElementById("cd-m");
+          var elS = document.getElementById("cd-s");
+          if (elD) elD.textContent = String(d);
+          if (elH) elH.textContent = pad(h);
+          if (elM) elM.textContent = pad(m);
+          if (elS) elS.textContent = pad(s);
+        }
+        tick();
+        setInterval(tick, 1000);
+
+        var body = document.body;
+        var panel = document.getElementById("info-panel");
+        var backdrop = document.getElementById("info-backdrop");
+        var openBtn = document.getElementById("open-info");
+        var closeBtn = document.getElementById("close-info");
+        var lastFocus = null;
+
+        function openPanel() {
+          lastFocus = document.activeElement;
+          panel.hidden = false;
+          backdrop.hidden = false;
+          void panel.offsetWidth;
+          body.classList.add("panel-open");
+          panel.classList.add("is-open");
+          backdrop.classList.add("is-open");
+          closeBtn.focus();
+        }
+        function closePanel() {
+          body.classList.remove("panel-open");
+          panel.classList.remove("is-open");
+          backdrop.classList.remove("is-open");
+          setTimeout(function () {
+            if (!body.classList.contains("panel-open")) {
+              panel.hidden = true;
+              backdrop.hidden = true;
+            }
+          }, 280);
+          if (lastFocus) lastFocus.focus();
+        }
+        openBtn.addEventListener("click", openPanel);
+        closeBtn.addEventListener("click", closePanel);
+        backdrop.addEventListener("click", closePanel);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && body.classList.contains("panel-open")) closePanel();
+        });
+        if (location.search.indexOf("panel=1") !== -1) openPanel();
+      })();
+    </script>
+  </body>
+</html>

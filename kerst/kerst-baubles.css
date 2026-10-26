@@ -1,0 +1,293 @@
+/* Kerst · Immersive B — baubles hero (standalone, no Almost chrome) */
+:root {
+  --display: "Fraunces", Georgia, serif;
+  --body: "Jost", Futura, "Century Gothic", sans-serif;
+  --cream: #f3e6c8;
+  --gold: #d4b56a;
+  --ink: #0a1210;
+  --evergreen: #0f2418;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; font-family: var(--body); }
+button { font-family: inherit; }
+
+body.kerst-B {
+  color: var(--cream);
+  background: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+h1, h2, h3 {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.lede {
+  margin: 12px 0 0;
+  line-height: 1.55;
+  max-width: 42ch;
+  opacity: 0.88;
+  font-size: 16px;
+}
+.cultural { margin: 0; line-height: 1.6; font-size: 15px; opacity: 0.88; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+}
+.chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(212, 181, 106, 0.35);
+  background: rgba(212, 181, 106, 0.1);
+}
+.chip strong { font-weight: 600; margin-right: 6px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+.btn.primary { background: var(--gold); color: var(--ink); }
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(243, 230, 200, 0.4);
+  color: var(--cream);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+  max-width: 420px;
+}
+.tile {
+  text-align: center;
+  padding: 14px 8px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(212, 181, 106, 0.3);
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(8px);
+}
+.tile b {
+  display: block;
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--gold);
+}
+.tile span {
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.section-label {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+/* —— Hero —— */
+.hero-bleed {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 100px 48px 80px;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+/* Sharp bauble sits right → anchor right; soft bokeh left for copy */
+.kerst-photo-layer {
+  position: absolute;
+  inset: 0;
+  background: url("_assets/baubles-SUTfFCAHV_A.jpg") right 42% / cover no-repeat;
+  filter: saturate(1.06) brightness(0.82);
+  transform: scale(1.02);
+}
+
+/* Left-weighted veil: keep gold bauble readable on right, copy-safe left */
+.kerst-photo-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(10, 18, 16, 0.78) 0%,
+      rgba(10, 18, 16, 0.55) 32%,
+      rgba(10, 18, 16, 0.22) 58%,
+      rgba(10, 18, 16, 0.12) 100%),
+    linear-gradient(180deg,
+      rgba(10, 18, 16, 0.28) 0%,
+      rgba(10, 18, 16, 0.35) 45%,
+      rgba(10, 18, 16, 0.82) 88%,
+      #0a1210 100%),
+    radial-gradient(ellipse 55% 45% at 78% 40%, rgba(212, 181, 106, 0.14), transparent 60%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+.hero-inner h1 {
+  font-size: clamp(52px, 6.5vw, 84px);
+  line-height: 1.02;
+  color: var(--cream);
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.credit-footer {
+  position: absolute;
+  right: 28px;
+  bottom: 20px;
+  z-index: 2;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(243, 230, 200, 0.45);
+}
+.credit-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.credit-footer a:hover { color: rgba(243, 230, 200, 0.75); }
+
+/* —— Floating info panel —— */
+.info-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+.info-panel {
+  --panel-accent: #d4b56a;
+  --panel-ink: #f3e6c8;
+  --panel-bg: rgba(12, 22, 18, 0.9);
+  --panel-border: rgba(212, 181, 106, 0.28);
+  position: fixed;
+  z-index: 90;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%) scale(0.96);
+  width: min(720px, calc(100vw - 48px));
+  max-height: min(82vh, 780px);
+  overflow: auto;
+  padding: 36px 40px 40px;
+  border-radius: 24px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  color: var(--panel-ink);
+  backdrop-filter: blur(22px) saturate(1.1);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.32s ease;
+}
+.info-panel h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: var(--panel-ink);
+}
+.info-panel .panel-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--panel-ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-panel .panel-close:hover { background: rgba(255, 255, 255, 0.12); }
+.info-panel .panel-block {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.info-panel .panel-block:first-of-type {
+  margin-top: 20px;
+  padding-top: 0;
+  border-top: none;
+}
+.info-panel .panel-block h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: var(--panel-ink);
+}
+body.panel-open .info-backdrop,
+.info-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+body.panel-open .info-panel,
+.info-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+body.panel-open { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .hero-bleed {
+    padding: 88px 24px 72px;
+  }
+  .tiles {
+    max-width: 100%;
+  }
+  .credit-footer {
+    right: 16px;
+    bottom: 14px;
+    font-size: 10px;
+  }
+}
