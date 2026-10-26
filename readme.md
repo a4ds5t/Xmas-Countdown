@@ -20,6 +20,10 @@ npm run dev     # http://127.0.0.1:8787
 
 `npm run dev` and `npm run check` do not deploy. Do not run `wrangler deploy` without `--dry-run` until a real hostname is chosen.
 
+## License
+
+Noncommercial use only, under the PolyForm Noncommercial License 1.0.0 (SPDX: `PolyForm-Noncommercial-1.0.0`). See [LICENSE](LICENSE) and [NOTICE](NOTICE). Commercial use needs a separate paid license. Trademarks and domain names stay with [a4ds5t](https://github.com/a4ds5t).
+
 ## TODO: canonical and Open Graph URLs
 
 `index.html` still points `canonical`, `hreflang`, `og:url`, and `og:image` at the GitHub Pages host `https://drallas.github.io/Xmas-Countdown/`. Rewrite those at deploy time (or with a thin Worker and the ASSETS binding). Do not hardcode a production Workers URL before one exists. The same TODO is in the comment above those tags in `index.html` and in `wrangler.jsonc`.
