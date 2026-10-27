@@ -2,7 +2,7 @@
   "name": "xmas-countdown",
   "private": true,
   "version": "0.1.0",
-  "description": "Local Cloudflare Worker (static assets) for the Almost Christmas countdown. Not deployed.",
+  "description": "Thin Cloudflare Worker + static assets for the Almost Christmas countdown. Dry-run / local dev only.",
   "license": "PolyForm-Noncommercial-1.0.0",
   "scripts": {
     "dev": "wrangler dev",

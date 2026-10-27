@@ -35,4 +35,4 @@ Noncommercial use only, under the PolyForm Noncommercial License 1.0.0 (SPDX: `P
 
 ## TODO: canonical and Open Graph URLs
 
-`index.html` still points `canonical`, `hreflang`, `og:url`, and `og:image` at the GitHub Pages host `https://drallas.github.io/Xmas-Countdown/`. Rewrite those at deploy time (or with a thin Worker and the ASSETS binding). Do not hardcode a production Workers URL before one exists. The same TODO is in the comment above those tags in `index.html` and in `wrangler.jsonc`.
+`index.html` already uses the intended hostname `https://almost-xmas.soholocal.nl/` for `canonical`, `hreflang`, `og:url`, and `og:image`. Confirm those tags when Infra enables the real custom domain (no routes in this PR). A Worker-side rewrite to the request origin remains optional for stale absolute URLs.
