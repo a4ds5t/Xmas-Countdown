@@ -66,7 +66,7 @@ const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
   changelog.target = '_blank'
   changelog.rel = 'noopener'
 
-  tail.append(document.createTextNode(' '), sep, document.createTextNode(' '), changelog)
+  tail.append(document.createTextNode('\u00a0'), sep, document.createTextNode(' '), changelog)
   meta.append(updatedLine, tail)
   popover.append(meta)
   root.append(button, popover)
