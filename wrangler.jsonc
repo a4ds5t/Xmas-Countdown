@@ -8,9 +8,8 @@
   // Worker for Observability, then static files via env.ASSETS.fetch.
   // `.assetsignore` drops repo metadata from the asset upload.
   //
-  // TODO(deploy): when going live on almost-xmas.soholocal.nl, confirm canonical,
-  // hreflang, og:url, and og:image in index.html match the real hostname (Worker
-  // rewrite to request origin is optional if HTML still has stale absolute URLs).
+  // Canonical hostname: xmas.soholocal.nl (HTML + sitemap). Legacy preview host
+  // is 301-redirected in worker.js; custom domain routes are added in a later go.
   "name": "xmas-countdown",
   "main": "worker.js",
   "compatibility_date": "2026-10-25",
