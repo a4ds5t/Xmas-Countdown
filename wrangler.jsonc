@@ -3,7 +3,7 @@
   // Thin Worker + ASSETS for Almost Christmas. Local dev and dry-run only — no
   // custom domain routes until Infra preview after Armand-go (Production UIT).
   //
-  // Layout: GitHub Pages serves the repository root. Wrangler uploads that same
+  // Layout: static files at the repository root. Wrangler uploads that same
   // root (`assets.directory`) with `run_worker_first` so every request hits the
   // Worker for Observability, then static files via env.ASSETS.fetch.
   // `.assetsignore` drops repo metadata from the asset upload.

@@ -1,5 +1,4 @@
-# Repo files that are not part of the static site.
-# GitHub Pages still serves the repository root; Workers must not upload these.
+# Repo files that are not part of the static site upload (Worker + ASSETS only).
 node_modules
 .git
 .github
@@ -12,11 +11,17 @@ package-lock.json
 wrangler.jsonc
 worker.js
 test
-readme.md
-README.md
-.gitignore
-.assetsignore
+test/**
 scripts
 scripts/**
 docs
 docs/**
+readme.md
+README.md
+.gitignore
+.assetsignore
+CHANGELOG.md
+LICENSE
+NOTICE
+kerst/CREDIT.md
+kerst/SPECS.md

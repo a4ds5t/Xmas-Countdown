@@ -1,5 +1,5 @@
 // Texts per language
-const APP_VERSION = "0.1.4";
+const APP_VERSION = "0.1.5";
 const CHANGELOG_URL = "https://github.com/a4ds5t/Xmas-Countdown/blob/main/CHANGELOG.md";
 const APP_BUILD_ISO = typeof BUILD_TIMESTAMP_ISO !== "undefined" ? BUILD_TIMESTAMP_ISO : null;
 
