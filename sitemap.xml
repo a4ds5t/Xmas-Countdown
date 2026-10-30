@@ -12,10 +12,7 @@
   </url>
   <url>
     <loc>https://xmas.soholocal.nl/kerst/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://xmas.soholocal.nl/kerst/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://xmas.soholocal.nl/kerst/?lang=nl" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://xmas.soholocal.nl/kerst/?lang=es" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://xmas.soholocal.nl/kerst/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://xmas.soholocal.nl/kerst/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xmas.soholocal.nl/kerst/" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
