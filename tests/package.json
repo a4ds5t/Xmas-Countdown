@@ -1,0 +1,11 @@
+{
+  "name": "xmas-countdown-tests",
+  "private": true,
+  "description": "Playwright smoke tests for index.html and kerst/. See README.md.",
+  "scripts": {
+    "test": "node smoke.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

@@ -1,0 +1,32 @@
+name: HTML check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  html-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install the validator
+        # Installed in its own folder: npx --yes crashes on this npm version when it resolves the package.
+        run: |
+          mkdir -p "$RUNNER_TEMP/validator"
+          cd "$RUNNER_TEMP/validator"
+          npm init -y > /dev/null
+          npm install --no-audit --no-fund --legacy-peer-deps html-validate@10.17.0
+      - name: Validate index.html and kerst/index.html
+        run: "$RUNNER_TEMP/validator/node_modules/.bin/html-validate index.html kerst/index.html"
+      - name: Install app dependencies
+        run: npm ci
+      - name: SEO unit tests
+        run: npm run test:seo

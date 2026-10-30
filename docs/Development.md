@@ -27,8 +27,12 @@ Static files live at the repository root (`index.html`, `script.js`, `style.css`
 ## Tests
 
 ```bash
-npm test
+npm test              # Worker redirect + security headers (test/redirect.test.mjs)
+npm run test:seo      # Static SEO checks on index.html and kerst/index.html
+cd tests && npm ci && npx playwright install chromium && npm test   # browser smoke
 ```
+
+CI runs the same checks via `.github/workflows/tests.yml` (Worker + Playwright smoke) and `.github/workflows/html-check.yml` (html-validate + SEO unit tests).
 
 `test/redirect.test.mjs` covers the legacy-host 301 and basic Worker passthrough.
 
