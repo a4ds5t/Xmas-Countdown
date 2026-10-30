@@ -1,0 +1,50 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Worker unit tests
+        run: npm test
+
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+      - name: Install test dependencies
+        working-directory: tests
+        run: npm ci
+      # The browser is cached per Playwright version, so a push only downloads Chromium when that version changes.
+      - name: Cache Chromium
+        id: chromium-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: chromium-${{ runner.os }}-${{ hashFiles('tests/package-lock.json') }}
+      - name: Install Chromium
+        if: steps.chromium-cache.outputs.cache-hit != 'true'
+        working-directory: tests
+        run: npx playwright install --with-deps chromium
+      - name: Run smoke tests
+        working-directory: tests
+        run: npm test
