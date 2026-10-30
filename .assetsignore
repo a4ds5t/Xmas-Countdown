@@ -16,3 +16,7 @@ readme.md
 README.md
 .gitignore
 .assetsignore
+scripts
+scripts/**
+docs
+docs/**

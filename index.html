@@ -33,6 +33,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css?v=9" />
+    <link rel="stylesheet" href="version-tag.css" />
   </head>
 
   <body>
@@ -114,9 +115,15 @@
 
       <footer>
         <p id="footer"></p>
-        <small id="copyright" class="copyright"></small>
+        <small class="copyright"
+          ><span id="copyright"></span
+          ><span class="footer-sep" aria-hidden="true"> · </span
+          ><span id="app-version-root" class="footer-version"></span
+        ></small>
       </footer>
     </main>
+    <script src="build-info.js"></script>
+    <script src="version-tag.js"></script>
     <script src="script.js?v=10"></script>
   </body>
 </html>
