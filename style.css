@@ -339,3 +339,9 @@ footer p {
   letter-spacing: 0.08em;
   color: rgba(246, 239, 224, 0.26);
 }
+
+.footer-version {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: rgba(246, 239, 224, 0.26);
+}

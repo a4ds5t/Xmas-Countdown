@@ -1,4 +1,8 @@
 // Texts per language
+const APP_VERSION = "0.1.3";
+const CHANGELOG_URL = "https://github.com/a4ds5t/Xmas-Countdown/blob/main/CHANGELOG.md";
+const APP_BUILD_ISO = typeof BUILD_TIMESTAMP_ISO !== "undefined" ? BUILD_TIMESTAMP_ISO : null;
+
 var TEXT = {
   nl: {
     locale: "nl-NL", langLabel: "Taal",
@@ -9,7 +13,10 @@ var TEXT = {
     christmas: "Het is zover. Fijne feestdagen!",
     months: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
     footer: "Het is bijna kerst, zelfs in {month}.",
-    copyright: "De Kerstman. Alle rechten voorbehouden."
+    copyright: "De Kerstman. Alle rechten voorbehouden.",
+    versionUpdated: "Bijgewerkt",
+    versionChangelog: "Changelog",
+    versionTagAria: "Versie {v}, toon updategegevens"
   },
   en: {
     locale: "en-GB", langLabel: "Language",
@@ -20,7 +27,10 @@ var TEXT = {
     christmas: "It’s here. Happy holidays!",
     months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     footer: "It’s almost Christmas, even in {month}.",
-    copyright: "Santa Claus. All rights reserved."
+    copyright: "Santa Claus. All rights reserved.",
+    versionUpdated: "Updated",
+    versionChangelog: "Changelog",
+    versionTagAria: "Version {v}, show update details"
   },
   es: {
     locale: "es-ES", langLabel: "Idioma",
@@ -31,7 +41,10 @@ var TEXT = {
     christmas: "¡Ya está aquí! ¡Felices fiestas!",
     months: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
     footer: "Es casi Navidad, incluso en {month}.",
-    copyright: "Papá Noel. Todos los derechos reservados."
+    copyright: "Papá Noel. Todos los derechos reservados.",
+    versionUpdated: "Actualizado",
+    versionChangelog: "Registro de cambios",
+    versionTagAria: "Versión {v}, mostrar detalles de la actualización"
   },
   zh: {
     locale: "zh-CN", htmlLang: "zh-CN", langLabel: "语言",
@@ -42,7 +55,10 @@ var TEXT = {
     christmas: "圣诞节到了！节日快乐！",
     months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
     footer: "即使是{month}，也快到圣诞节了。",
-    copyright: "圣诞老人。保留所有权利。"
+    copyright: "圣诞老人。保留所有权利。",
+    versionUpdated: "更新于",
+    versionChangelog: "更新日志",
+    versionTagAria: "版本 {v}，显示更新详情"
   }
 };
 
@@ -70,6 +86,32 @@ function detectLanguage() {
 }
 
 var lang = detectLanguage();
+var versionTagHandle = null;
+
+function versionTagStrings(t) {
+  return {
+    updatedLabel: t.versionUpdated,
+    changelogLabel: t.versionChangelog,
+    tagAria: t.versionTagAria
+  };
+}
+
+function applyVersionTag() {
+  var root = document.getElementById("app-version-root");
+  if (!root || typeof initVersionTag !== "function") return;
+  var t = TEXT[lang];
+  if (!versionTagHandle) {
+    versionTagHandle = initVersionTag({
+      root: root,
+      version: APP_VERSION,
+      buildIso: APP_BUILD_ISO,
+      changelogUrl: CHANGELOG_URL,
+      strings: versionTagStrings(t)
+    });
+  } else {
+    versionTagHandle.update({ strings: versionTagStrings(t) });
+  }
+}
 
 function plural(pair, n) {
   return pair[n == 1 ? 0 : 1];
@@ -164,6 +206,7 @@ function setLanguage(code) {
   } catch (e) {}
   markLanguage();
   update();
+  applyVersionTag();
 }
 
 document.querySelector(".lang-switch").addEventListener("click", function (e) {
@@ -172,6 +215,8 @@ document.querySelector(".lang-switch").addEventListener("click", function (e) {
   e.preventDefault();
   setLanguage(link.dataset.lang);
 });
+
+applyVersionTag();
 
 // Show the page in the detected language without saving it as a choice
 markLanguage();

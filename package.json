@@ -1,7 +1,7 @@
 {
   "name": "xmas-countdown",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Thin Cloudflare Worker + static assets for the Almost Christmas countdown. Dry-run / local dev only.",
   "license": "PolyForm-Noncommercial-1.0.0",
   "scripts": {

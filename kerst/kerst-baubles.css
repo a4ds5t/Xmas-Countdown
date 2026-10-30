@@ -193,6 +193,28 @@ h1, h2, h3 {
 }
 .credit-footer a:hover { color: rgba(243, 230, 200, 0.75); }
 
+.footer-version {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(243, 230, 200, 0.45);
+}
+
+.credit-footer .version-tag-popover {
+  border-color: rgba(243, 230, 200, 0.12);
+  background: rgba(10, 18, 16, 0.96);
+  color: rgba(243, 230, 200, 0.72);
+}
+
+.credit-footer .version-tag-updated,
+.credit-footer .version-tag-changelog {
+  color: rgba(243, 230, 200, 0.45);
+}
+
+.credit-footer .version-tag-changelog:hover,
+.credit-footer .version-tag-changelog:focus-visible {
+  color: rgba(243, 230, 200, 0.72);
+}
+
 /* —— Floating info panel —— */
 .info-backdrop {
   position: fixed;

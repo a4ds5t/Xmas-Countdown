@@ -1,0 +1,74 @@
+/* Clickable version tag + build-details popover (see docs/version-tag.md). */
+.version-tag {
+  position: relative;
+  display: inline-block;
+}
+
+.version-tag-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.version-tag-button:hover,
+.version-tag-button:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.version-tag-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  z-index: 30;
+  min-width: 11rem;
+  max-width: min(16rem, calc(100vw - 24px));
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(246, 239, 224, 0.12);
+  background: rgba(15, 42, 31, 0.96);
+  color: rgba(246, 239, 224, 0.72);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  line-height: 1.4;
+}
+
+.version-tag-updated {
+  margin: 0 0 6px;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: rgba(246, 239, 224, 0.45);
+}
+
+.version-tag-updated-label {
+  font-weight: 600;
+}
+
+.version-tag-changelog {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: rgba(246, 239, 224, 0.45);
+  text-decoration: none;
+}
+
+.version-tag-changelog:hover,
+.version-tag-changelog:focus-visible {
+  color: rgba(246, 239, 224, 0.72);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 402px) {
+  .version-tag-popover {
+    right: 0;
+    left: auto;
+    max-width: calc(100vw - 32px);
+  }
+}
