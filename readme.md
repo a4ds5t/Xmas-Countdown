@@ -33,6 +33,6 @@ Photo credit and specs: `kerst/CREDIT.md`, `kerst/SPECS.md`.
 
 Noncommercial use only, under the PolyForm Noncommercial License 1.0.0 (SPDX: `PolyForm-Noncommercial-1.0.0`). See [LICENSE](LICENSE) and [NOTICE](NOTICE). Commercial use needs a separate paid license. Trademarks and domain names stay with [a4ds5t](https://github.com/a4ds5t).
 
-## TODO: canonical and Open Graph URLs
+## Canonical hostname
 
-`index.html` already uses the intended hostname `https://almost-xmas.soholocal.nl/` for `canonical`, `hreflang`, `og:url`, and `og:image`. Confirm those tags when Infra enables the real custom domain (no routes in this PR). A Worker-side rewrite to the request origin remains optional for stale absolute URLs.
+`index.html`, `kerst/index.html`, `sitemap.xml`, and `robots.txt` use `https://xmas.soholocal.nl/`. The Worker returns a 301 to the same path on `xmas.soholocal.nl` when the request `Host` is the previous preview hostname (see `worker.js`). Custom domain routes are still added in a separate Infra go.
