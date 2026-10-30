@@ -23,7 +23,9 @@ const formatBuildTimeAmsterdam = (iso) => {
     timeZoneName: 'short',
   }).formatToParts(date)
   const pick = (type) => parts.find((p) => p.type === type)?.value ?? ''
-  return `${pick('day')}-${pick('month')}-${pick('year')} ${pick('hour')}:${pick('minute')} ${pick('timeZoneName')}`.trim()
+  const datePart = `${pick('day')}-${pick('month')}-${pick('year')}`
+  const timePart = `${pick('hour')}:${pick('minute')} ${pick('timeZoneName')}`.trim()
+  return `${datePart} ${timePart}`.trim()
 }
 
 const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
@@ -108,11 +110,21 @@ const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
     const formatted = formatBuildTimeAmsterdam(stamp)
     if (formatted) {
       updatedTime.dateTime = stamp
-      updatedTime.textContent = formatted
+      updatedTime.replaceChildren()
+      const spaceIdx = formatted.indexOf(' ')
+      if (spaceIdx > 0) {
+        updatedTime.append(
+          document.createTextNode(formatted.slice(0, spaceIdx)),
+          document.createTextNode(' '),
+          document.createTextNode(formatted.slice(spaceIdx + 1))
+        )
+      } else {
+        updatedTime.append(document.createTextNode(formatted))
+      }
       updatedTime.hidden = false
     } else {
       updatedTime.removeAttribute('datetime')
-      updatedTime.textContent = ''
+      updatedTime.replaceChildren()
       updatedTime.hidden = true
     }
     changelog.href = href

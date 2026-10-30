@@ -28,8 +28,9 @@
   right: 0;
   bottom: calc(100% + 8px);
   z-index: 30;
-  min-width: 11rem;
-  max-width: min(16rem, calc(100vw - 24px));
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 24px);
   padding: 4px 8px;
   border-radius: 6px;
   border: 1px solid rgba(246, 239, 224, 0.12);
@@ -38,6 +39,10 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   text-align: left;
   line-height: 1.4;
+  font-family: var(--body, "Jost", Futura, "Century Gothic", sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-variation-settings: normal;
 }
 
 .version-tag-meta {
@@ -49,13 +54,19 @@
   font-size: 9px;
   letter-spacing: 0.04em;
   color: rgba(246, 239, 224, 0.45);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  font-variation-settings: normal;
 }
 
 .version-tag-updated-line {
-  min-width: 0;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .version-tag-tail {
+  flex: 0 0 auto;
   white-space: nowrap;
 }
 
@@ -70,6 +81,9 @@
 .version-tag-changelog {
   font-size: inherit;
   letter-spacing: inherit;
+  font-family: inherit;
+  font-style: normal;
+  font-variation-settings: normal;
   color: inherit;
   text-decoration: none;
 }
