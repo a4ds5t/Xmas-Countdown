@@ -205,9 +205,12 @@ h1, h2, h3 {
   color: rgba(243, 230, 200, 0.72);
 }
 
-.credit-footer .version-tag-updated,
-.credit-footer .version-tag-changelog {
+.credit-footer .version-tag-meta {
   color: rgba(243, 230, 200, 0.45);
+}
+
+.credit-footer .version-tag-sep {
+  color: rgba(243, 230, 200, 0.35);
 }
 
 .credit-footer .version-tag-changelog:hover,

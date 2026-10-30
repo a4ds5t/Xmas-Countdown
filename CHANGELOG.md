@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented here.
 
+## 0.1.4
+
+- Compact version panel: date and changelog on one line.
+
 ## 0.1.3
 
 - Clickable version tag in the footer with build time and changelog link.

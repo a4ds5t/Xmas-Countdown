@@ -23,7 +23,9 @@ const formatBuildTimeAmsterdam = (iso) => {
     timeZoneName: 'short',
   }).formatToParts(date)
   const pick = (type) => parts.find((p) => p.type === type)?.value ?? ''
-  return `${pick('day')}-${pick('month')}-${pick('year')} ${pick('hour')}:${pick('minute')} ${pick('timeZoneName')}`.trim()
+  const datePart = `${pick('day')}-${pick('month')}-${pick('year')}`
+  const timePart = `${pick('hour')}:${pick('minute')} ${pick('timeZoneName')}`.trim()
+  return `${datePart} ${timePart}`.trim()
 }
 
 const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
@@ -45,19 +47,28 @@ const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
   popover.setAttribute('role', 'dialog')
   popover.setAttribute('aria-modal', 'false')
 
-  const updatedRow = document.createElement('p')
-  updatedRow.className = 'version-tag-updated'
+  const meta = document.createElement('div')
+  meta.className = 'version-tag-meta'
+  const updatedLine = document.createElement('span')
+  updatedLine.className = 'version-tag-updated-line'
   const updatedLabel = document.createElement('span')
   updatedLabel.className = 'version-tag-updated-label'
   const updatedTime = document.createElement('time')
-  updatedRow.append(updatedLabel, document.createTextNode(' '), updatedTime)
-
+  updatedLine.append(updatedLabel, document.createTextNode(' '), updatedTime)
+  const tail = document.createElement('span')
+  tail.className = 'version-tag-tail'
+  const sep = document.createElement('span')
+  sep.className = 'version-tag-sep'
+  sep.setAttribute('aria-hidden', 'true')
+  sep.textContent = '·'
   const changelog = document.createElement('a')
   changelog.className = 'version-tag-changelog'
   changelog.target = '_blank'
   changelog.rel = 'noopener'
 
-  popover.append(updatedRow, changelog)
+  tail.append(document.createTextNode('\u00a0'), sep, document.createTextNode(' '), changelog)
+  meta.append(updatedLine, tail)
+  popover.append(meta)
   root.append(button, popover)
 
   let open = false
@@ -99,11 +110,21 @@ const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
     const formatted = formatBuildTimeAmsterdam(stamp)
     if (formatted) {
       updatedTime.dateTime = stamp
-      updatedTime.textContent = formatted
+      updatedTime.replaceChildren()
+      const spaceIdx = formatted.indexOf(' ')
+      if (spaceIdx > 0) {
+        updatedTime.append(
+          document.createTextNode(formatted.slice(0, spaceIdx)),
+          document.createTextNode(' '),
+          document.createTextNode(formatted.slice(spaceIdx + 1))
+        )
+      } else {
+        updatedTime.append(document.createTextNode(formatted))
+      }
       updatedTime.hidden = false
     } else {
       updatedTime.removeAttribute('datetime')
-      updatedTime.textContent = ''
+      updatedTime.replaceChildren()
       updatedTime.hidden = true
     }
     changelog.href = href
