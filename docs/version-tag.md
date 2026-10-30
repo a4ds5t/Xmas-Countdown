@@ -1,6 +1,6 @@
 # Version tag component
 
-The footer shows a clickable version label (`v0.1.3`). Activating it opens a small popover with the build timestamp (Europe/Amsterdam, date, time and short zone name) and a link to the changelog.
+The footer shows a clickable version label (`v0.1.4`). Activating it opens a compact popover: one line with the build timestamp (Europe/Amsterdam, date, time and short zone name), a muted middle dot separator, and a changelog link (`Updated … · Changelog`). On narrow viewports the link may wrap directly under the date with no extra gap.
 
 ## Files
 

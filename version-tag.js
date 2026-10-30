@@ -45,19 +45,28 @@ const initVersionTag = ({ root, version, buildIso, changelogUrl, strings }) => {
   popover.setAttribute('role', 'dialog')
   popover.setAttribute('aria-modal', 'false')
 
-  const updatedRow = document.createElement('p')
-  updatedRow.className = 'version-tag-updated'
+  const meta = document.createElement('p')
+  meta.className = 'version-tag-meta'
+  const updatedLine = document.createElement('span')
+  updatedLine.className = 'version-tag-updated-line'
   const updatedLabel = document.createElement('span')
   updatedLabel.className = 'version-tag-updated-label'
   const updatedTime = document.createElement('time')
-  updatedRow.append(updatedLabel, document.createTextNode(' '), updatedTime)
-
+  updatedLine.append(updatedLabel, document.createTextNode(' '), updatedTime)
+  const tail = document.createElement('span')
+  tail.className = 'version-tag-tail'
+  const sep = document.createElement('span')
+  sep.className = 'version-tag-sep'
+  sep.setAttribute('aria-hidden', 'true')
+  sep.textContent = ' · '
   const changelog = document.createElement('a')
   changelog.className = 'version-tag-changelog'
   changelog.target = '_blank'
   changelog.rel = 'noopener'
 
-  popover.append(updatedRow, changelog)
+  tail.append(sep, changelog)
+  meta.append(updatedLine, tail)
+  popover.append(meta)
   root.append(button, popover)
 
   let open = false
