@@ -18,5 +18,19 @@ describe("legacy host redirect", () => {
       ASSETS: { fetch: () => new Response("ok", { status: 200 }) },
     });
     assert.equal(response.status, 200);
+    assert.equal(response.headers.get("Referrer-Policy"), "strict-origin-when-cross-origin");
+    assert.equal(response.headers.get("X-Content-Type-Options"), "nosniff");
+    assert.equal(response.headers.get("X-Frame-Options"), "SAMEORIGIN");
+    assert.equal(response.headers.get("Content-Security-Policy"), "frame-ancestors 'self'");
+  });
+
+  it("legacy 301 is unchanged (no security header injection)", async () => {
+    const request = new Request("http://almost-xmas.soholocal.nl/?x=1");
+    const response = await worker.fetch(request, {
+      ASSETS: { fetch: () => new Response("unexpected", { status: 500 }) },
+    });
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get("Referrer-Policy"), null);
+    assert.equal(response.headers.get("Content-Security-Policy"), null);
   });
 });

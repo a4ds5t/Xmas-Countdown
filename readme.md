@@ -2,11 +2,11 @@
 
 Simple Javascript program that **counts down** to the next Christmass!
 
-This repository is the home for the GitHub Pages site and the Cloudflare Worker variant of Almost Christmas. **Nothing in this change is deployed.** There is no Workers publish, no DNS change, and no custom domain.
+This repository holds the static site and thin Cloudflare Worker for **Almost Christmas**. Production is **https://xmas.soholocal.nl** (Worker + custom domain). See [docs/Development.md](docs/Development.md) for local run, tests, and release notes.
 
 ## Layout
 
-The site stays at the repository root (`index.html`, `script.js`, `style.css`, `og-image.png`). GitHub Pages keeps serving that tree. Wrangler points `assets.directory` at the same root instead of a second `public/` copy. The scaffold’s `public/` files were identical to these root files, so they were not added. `.assetsignore` keeps Worker config, npm metadata, and VCS files out of the asset upload. Wrangler still walks the root before applying that ignore file; the upload itself is only the four site files.
+The site stays at the repository root (`index.html`, `script.js`, `style.css`, `og-image.png`) and under `kerst/`. Wrangler uploads that tree via `assets.directory`. `.assetsignore` keeps Worker config, tests, scripts, docs, npm metadata, and repo markdown out of the public asset bundle.
 
 ## Run locally
 
@@ -18,7 +18,7 @@ npm run check   # wrangler deploy --dry-run — packages the Worker, does not pu
 npm run dev     # http://127.0.0.1:8787
 ```
 
-`npm run dev` and `npm run check` do not deploy. Do not run `wrangler deploy` without `--dry-run` until a real hostname is chosen.
+`npm run dev` and `npm run check` do not publish to production. Use your normal release path for deploys to `xmas.soholocal.nl`.
 
 ### Kerst · Immersive B (NL-only hero)
 
@@ -35,4 +35,4 @@ Noncommercial use only, under the PolyForm Noncommercial License 1.0.0 (SPDX: `P
 
 ## Canonical hostname
 
-`index.html`, `kerst/index.html`, `sitemap.xml`, and `robots.txt` use `https://xmas.soholocal.nl/`. The Worker returns a 301 to the same path on `xmas.soholocal.nl` when the request `Host` is the previous preview hostname (see `worker.js`). Custom domain routes are still added in a separate Infra go.
+`index.html`, `kerst/index.html`, `sitemap.xml`, and `robots.txt` use `https://xmas.soholocal.nl/`. The Worker returns a 301 to the same path and query on `xmas.soholocal.nl` when the request `Host` is `almost-xmas.soholocal.nl` (see `worker.js`).

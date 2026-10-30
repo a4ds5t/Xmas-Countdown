@@ -4,6 +4,19 @@
 const LEGACY_HOST = "almost-xmas.soholocal.nl";
 const CANONICAL_ORIGIN = "https://xmas.soholocal.nl";
 
+function applySecurityHeaders(headers) {
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "SAMEORIGIN");
+  headers.set("Content-Security-Policy", "frame-ancestors 'self'");
+}
+
+function withSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+  applySecurityHeaders(headers);
+  return new Response(response.body, { status: response.status, headers });
+}
+
 function assetRequestFor(request) {
   const url = new URL(request.url);
   const { pathname } = url;
@@ -27,6 +40,7 @@ export default {
     }
 
     const response = await env.ASSETS.fetch(assetRequestFor(request));
+    const secured = withSecurityHeaders(response);
 
     console.log(
       JSON.stringify({
@@ -38,6 +52,6 @@ export default {
       }),
     );
 
-    return response;
+    return secured;
   },
 };
